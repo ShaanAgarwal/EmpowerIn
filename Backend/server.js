@@ -1,5 +1,18 @@
 const express = require("express");
+const morgan = require('morgan');
+const dotenv = require("dotenv");
+const userRoutes = require('./Routes/userRoutes');
+const { connectDatabase } = require("./Config/connectDatabase");
+
+dotenv.config();
+
+connectDatabase();
+
 const app = express();
+
+app.use(express.json());
+app.use(morgan('dev'));
+app.use('/api/user', userRoutes);
 
 app.get("/", (req, res) => {
   try {
