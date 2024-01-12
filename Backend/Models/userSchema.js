@@ -9,6 +9,20 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    userType: {
+        type: String,
+        required: true,
+        enum: ['Admin', 'HeadHR', 'HR', 'Candidate']
+    }
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

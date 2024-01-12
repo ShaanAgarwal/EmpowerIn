@@ -16,11 +16,9 @@ app.use('/api/user', userRoutes);
 
 app.get("/", (req, res) => {
   try {
-    res
-      .status(200)
-      .json({ message: "The API is running successfully.", success: true });
+    return res.status(200).json({ message: "The API is running successfully.", success: true });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server error.", success: false });
+    return res.status(500).json({ message: "Internal Server error.", success: false });
   }
 });
 
