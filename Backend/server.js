@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const userRoutes = require("./Routes/userRoutes");
 const contactUsRoutes = require("./Routes/contactUsRoutes");
 const candidateRoutes = require("./Routes/candidateRoutes");
+const forgotPasswordRoutes = require("./Routes/forgotPasswordRoutes");
 const { connectDatabase } = require("./Config/connectDatabase");
 const { sendEmailSingle } = require("./Utils/EmailSendingViaNodemailer/sendEmailSingle");
 
@@ -18,6 +19,7 @@ app.use(morgan("dev"));
 app.use("/api/user", userRoutes);
 app.use("/api/contactUs", contactUsRoutes);
 app.use("/api/candidate", candidateRoutes);
+app.use("/api/forgotPassword", forgotPasswordRoutes);
 
 app.get("/", (req, res) => {
   try {
