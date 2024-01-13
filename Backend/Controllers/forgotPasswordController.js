@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const ForgotPassword = require('../Models/forgotPasswordSchema');
 const User = require('../Models/userSchema');
 
@@ -39,4 +40,24 @@ const verifyOtpForgotPassword = async (req, res) => {
     };
 };
 
-module.exports = { registerEmailForgotPassword, verifyOtpForgotPassword };
+const passwordResetForgotPassword = async (req, res) => {
+    try {
+        const { email, password, confirmPassword } = req.body;
+        if (password != confirmPassword) {
+            return res.status(400).json({ message: "Both passwords are different", success: false });
+        };
+        const existUser = await User.findOne({ email: email });
+        if (!existUser) {
+            return res.status(400).json({ message: "User with the given email does not exist.", success: false });
+        };
+        const hashedPassword = await bcrypt.hash(password, 10);
+        existUser.password = hashedPassword;
+        await existUser.save();
+        return res.status(200).json({ message: "Password Reset Successful", success: true, existUser });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+module.exports = { registerEmailForgotPassword, verifyOtpForgotPassword, passwordResetForgotPassword };
