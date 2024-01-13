@@ -13,25 +13,13 @@ const testUser = async (req, res) => {
 const testUserRegister = async (req, res) => {
     try {
         const { firstName, lastName, email, userType, password } = req.body;
-        if (!firstName) {
-            return res.status(400).json({ message: "First Name is required", success: false });
-        };
-        if (!lastName) {
-            return res.status(400).json({ message: "Last Name is required", success: false });
-        };
-        if (!email) {
-            return res.status(400).json({ message: "Email is required", success: false });
-        };
-        if (!password) {
-            return res.status(400).json({ message: "Password is required", success: false });
-        };
-        if (!userType) {
-            return res.status(400).json({ message: "User Type is required.", success: false });
+        if (!firstName || !lastName || !email || !userType || !password) {
+            return res.status(400).json({ message: "All fields are required", success: false });
         };
         const allowedUserTypes = ["Admin", "HeadHR", "HR", "Candidate"];
         if (!allowedUserTypes.includes(userType)) {
             return res.status(400).json({ message: "Invalid value for User Type", success: false });
-        }
+        };
         const existingUserEmail = await User.findOne({ email: email });
         if (existingUserEmail) {
             return res.status(409).json({ message: "Email already exists.", success: false });
@@ -49,11 +37,8 @@ const testUserRegister = async (req, res) => {
 const testuserLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
-        if (!email) {
-            return res.status(400).json({ message: "Email is required", success: false });
-        };
-        if (!password) {
-            return res.status(400).json({ message: "Password is required", success: false });
+        if (!email || !password) {
+            return res.status(400).json({ message: "All fields are required", success: false });
         };
         const userExist = await User.findOne({ email: email });
         if (!userExist) {

@@ -7,6 +7,9 @@ const { sendEmailSingle } = require('../Utils/EmailSendingViaNodemailer/sendEmai
 const registerCandidate = async (req, res) => {
     try {
         const { firstName, lastName, email, password, confirmPassword, phoneNumber, linkedinURL, aboutSection } = req.body;
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !phoneNumber || !linkedinURL || aboutSection) {
+            return res.status(400).json({ message: "All fields are required", success: false });
+        };
         if (password !== confirmPassword) {
             return res.status(400).json({ message: "Passwords do not match", success: false });
         };
@@ -46,6 +49,9 @@ const registerCandidate = async (req, res) => {
 const verifyOtpRegistration = async (req, res) => {
     try {
         const { email, otp } = req.body;
+        if (!email || !otp) {
+            return res.status(400).json({ message: "All fields are required", success: false });
+        };
         const userExist = await User.findOne({ email: email });
         if (!userExist) {
             return res.status(400).json({ message: "User with the given email does not exist.", success: false });

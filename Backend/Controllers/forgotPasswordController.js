@@ -5,6 +5,9 @@ const User = require('../Models/userSchema');
 const registerEmailForgotPassword = async (req, res) => {
     try {
         const { email } = req.body;
+        if (!email) {
+            return res.status(400).json({ message: "All fields are required", success: false });
+        };
         const userExist = await User.findOne({ email: email });
         if (!userExist) {
             return res.status(400).json({ message: "User with the given password does not exist.", success: false });
@@ -23,6 +26,9 @@ const registerEmailForgotPassword = async (req, res) => {
 const verifyOtpForgotPassword = async (req, res) => {
     try {
         const { email, otp } = req.body;
+        if (!email || !otp) {
+            return res.status(400).json({ message: "All fields are required", success: false });
+        };
         const userExist = await User.findOne({ email: email });
         if (!userExist) {
             return res.status(400).json({ message: "User does not exist", success: false });
@@ -43,6 +49,9 @@ const verifyOtpForgotPassword = async (req, res) => {
 const passwordResetForgotPassword = async (req, res) => {
     try {
         const { email, password, confirmPassword } = req.body;
+        if (!email || !password || !confirmPassword) {
+            return res.status(400).json({ message: "All fields are required.", success: false });
+        };
         if (password != confirmPassword) {
             return res.status(400).json({ message: "Both passwords are different", success: false });
         };
