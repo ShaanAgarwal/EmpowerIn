@@ -43,4 +43,21 @@ const registerCandidate = async (req, res) => {
     };
 };
 
-module.exports = { registerCandidate };
+const verifyOtpRegistration = async (req, res) => {
+    try {
+        const { email, otp } = req.body;
+        const userExist = await User.findOne({ email: email });
+        if (!userExist) {
+            return res.status(400).json({ message: "User with the given email does not exist.", success: false });
+        };
+        const existOtp = await OtpRegistration.findOne({ email: userExist._id });
+        if (existOtp.otp != otp) {
+            return res.status(400).json({ message: "Invalid OTP", success: false });
+        };
+        return res.status(200).json({ message: "OTP is verified.", success: true, userExist, existOtp });
+    } catch (error) {
+        return res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+module.exports = { registerCandidate, verifyOtpRegistration };
