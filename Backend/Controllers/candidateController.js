@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../Models/userSchema');
 const Candidate = require('../Models/candidateSchema');
+const OtpRegistration = require('../Models/otpRegistrationSchema');
 
 const registerCandidate = async (req, res) => {
     try {
@@ -28,7 +29,12 @@ const registerCandidate = async (req, res) => {
             aboutSection,
         });
         await newCandidate.save();
-        return res.status(200).json({ message: "Candidate Registered Successfully", success: true, newUser, newCandidate });
+        const otp = new OtpRegistration({
+            email: newUser._id,
+            otp: 1234,
+        });
+        await otp.save();
+        return res.status(200).json({ message: "Candidate Registered Successfully", success: true, newUser, newCandidate, otp });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Internal Server Error", success: false });
