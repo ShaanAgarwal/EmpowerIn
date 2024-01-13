@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const userRoutes = require("./Routes/userRoutes");
 const contactUsRoutes = require("./Routes/contactUsRoutes");
+const candidateRoutes = require("./Routes/candidateRoutes");
 const { connectDatabase } = require("./Config/connectDatabase");
 const { sendEmailSingle } = require("./Utils/EmailSendingViaNodemailer/sendEmailSingle");
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use("/api/user", userRoutes);
 app.use("/api/contactUs", contactUsRoutes);
+app.use("/api/candidate", candidateRoutes);
 
 app.get("/", (req, res) => {
   try {
