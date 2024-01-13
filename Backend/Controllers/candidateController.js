@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const User = require('../Models/userSchema');
 const Candidate = require('../Models/candidateSchema');
 const OtpRegistration = require('../Models/otpRegistrationSchema');
+const { sendEmailSingle } = require('../Utils/EmailSendingViaNodemailer/sendEmailSingle');
 
 const registerCandidate = async (req, res) => {
     try {
@@ -34,6 +35,7 @@ const registerCandidate = async (req, res) => {
             otp: 1234,
         });
         await otp.save();
+        await sendEmailSingle(email, 'Registration OTP', '1234');
         return res.status(200).json({ message: "Candidate Registered Successfully", success: true, newUser, newCandidate, otp });
     } catch (error) {
         console.log(error);
