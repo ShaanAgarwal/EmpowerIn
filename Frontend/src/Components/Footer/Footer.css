@@ -1,0 +1,60 @@
+.footer-component {
+  background-color: #042e30;
+  height: 20vh;
+  position: relative;
+}
+
+.footer-component .top-right-component {
+  height: 40%;
+  width: 4%;
+  position: absolute;
+  right: 0;
+}
+
+.footer-component .top-right-component .top-right-component-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.footer-component .middle-component {
+  width: 40%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footer-component .middle-component .top-part {
+  height: 47%;
+  position: relative;
+}
+
+.footer-component .middle-component .top-part .follow-us-text {
+  position: absolute;
+  height: 80%;
+  width: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footer-component .middle-component .middle-part {
+  height: 6%;
+  background-color: #66d210;
+}
+
+.footer-component .middle-component .bottom-part {
+  height: 47%;
+  position: relative;
+}
+
+.footer-component .middle-component .bottom-part .bottom-part-image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  top: 70%;
+}
