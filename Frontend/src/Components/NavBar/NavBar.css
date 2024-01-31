@@ -1,49 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 
-.source-sans-3 {
-    font-family: "Source Sans 3", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
 .navbar-header {
-    display: flex;
-    background-color: #E6E6FA;
-    height: 102px;
-    padding: 1.8%;
+  display: flex;
+  background-color: #e6e6fa;
+  height: 15vh;
+  padding: 1.8%;
+  gap: 10%;
+  align-items: center;
 }
 .navbar-header .navbar-company-logo {
-    margin-right: 158px;
-    color: black;
-    margin-left: 60px;
+  margin-left: 5%;
 }
-.navbar-header .nav-content{
-    text-decoration: none;
-    margin-right: 10%;
-    margin-top: 0.8%;
-    margin-bottom: 1px;
- 
-}   
 
-.navbar-header .nav-content .nav-a{
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    
-    margin-right: 60px;
-    padding-top: 53px;
-    margin-top: 1px;
-    font-size: 20px;
+.navbar-header .navbar-company-logo .company-logo-picture {
+  height: 150%;
+  width: 100%;
 }
+
+.navbar-header .nav-content {
+  display: flex;
+  gap: 40px;
+  text-decoration: none;
+  margin-left: 5%;
+}
+
+.navbar-header .nav-content .nav-a {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 130%;
+}
+
+.navbar-header .nav-button {
+  position: relative;
+  left: 6%;
+}
+
 .navbar-header .nav-login {
-    color: aliceblue;
-    background-color: darkviolet;
-    border-color: white;
-    border: solid;
-    font-size: 20px;
-    padding: 15px 34px 15px 34px;
-    border-radius: 35px;
-    border: black;
-    /*font-weight: 600;*/
+  color: aliceblue;
+  background-color: darkviolet;
+  border-color: white;
+  border: solid;
+  font-size: 20px;
+  padding: 10px 34px 10px 34px;
+  border-radius: 35px;
+  border: black;
 }

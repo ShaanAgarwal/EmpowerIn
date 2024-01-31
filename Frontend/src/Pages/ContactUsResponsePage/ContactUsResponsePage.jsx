@@ -2,11 +2,12 @@ import React from "react";
 import Footer from "../../Components/Footer/Footer";
 import "./ContactUsResponsePage.css";
 import {Link} from 'react-router-dom';
+import NavBar from "../../Components/NavBar/NavBar";
 
 const ContactUsResponsePage = () => {
   return (
     <>
-      <div className="my-one">Navbar</div>
+    <NavBar />
       <div className="contact-us-response-page">
         <div className="middle-content">
           <div className="thankyou-text">THANK YOU</div>

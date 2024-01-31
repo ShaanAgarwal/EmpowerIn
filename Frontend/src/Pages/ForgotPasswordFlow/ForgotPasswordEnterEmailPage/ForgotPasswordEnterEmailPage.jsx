@@ -3,11 +3,13 @@ import "./ForgotPasswordEnterEmailPage.css";
 import CharacterImage from "../../../assets/Images/Authentication/Character-Working.png";
 import Cactus from "../../../assets/Images/Authentication/Cactus.png";
 import { Link } from "react-router-dom";
+import NavBar from "../../../Components/NavBar/NavBar";
+import Footer from "../../../Components/Footer/Footer";
 
 const ForgotPasswordEnterEmailPage = () => {
   return (
     <>
-      <div className="test-navbar">Navbar</div>
+      <NavBar />
       <div className="forgot-password-enter-email-page">
         <div className="enter-email-component">
           <div className="inner-enter-email-component">
@@ -42,6 +44,7 @@ const ForgotPasswordEnterEmailPage = () => {
           <img src={Cactus} alt="Cactus Image" className="cactus-image" />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

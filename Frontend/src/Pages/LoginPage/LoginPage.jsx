@@ -4,6 +4,7 @@ import "./LoginPage.css";
 import { Link } from "react-router-dom";
 import CharacterImage from "../../assets/Images/Authentication/Character-Working.png";
 import Cactus from "../../assets/Images/Authentication/Cactus.png";
+import NavBar from "../../Components/NavBar/NavBar";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="test-navbar">Navbar</div>
+      <NavBar />
       <div className="login-page">
         <div className="login-component">
           <div className="inner-login-component">
