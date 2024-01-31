@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+.my-one {
+    background-color: red;
+    height: 10vh;
+}
+
+.contact-us-response-page {
+    height: 90vh;
+    background-color: #E6E6FA;
+    position: relative;
+}
+
+.contact-us-response-page .middle-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.contact-us-response-page .middle-content .thankyou-text {
+    font-size: 500%;
+    font-family: 'Playfair Display', serif;
+}
+
+.contact-us-response-page .middle-content .support-text-one {
+    font-family: 'Abhaya Libre', serif;
+}
+
+.contact-us-response-page .middle-content .support-text-two {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.contact-us-response-page .middle-content .back-to-home-button {
+    background-color: #0AE0AD;
+    width: 40%;
+    height: 40px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-us-response-page .middle-content .back-to-home-button .link-class {
+    text-decoration: none;
+}
+
+.contact-us-response-page .middle-content .back-to-home-button .link-class .display-text {
+    color: #FFFFFF;
+    font-family: 'Aclonica', sans-serif;
+}
