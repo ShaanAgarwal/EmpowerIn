@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+.test-navbar {
+    height: 10vh;
+    background-color: red;
+}
+
+.login-page {
+    background-color: #E6E6FA;
+    height: 90vh;
+    display: flex;
+}
+
+.login-page .login-component {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page .login-component .inner-login-component {
+    padding: 5%;
+    width: 80%;
+    height: 90%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1), 0 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-page .login-component .inner-login-component .welcome-back-text {
+    font-size: 200%;
+    font-family: 'ABeeZee', sans-serif;
+    color: #F25019;
+    margin-bottom: 3%;
+}
+
+.login-page .login-component .inner-login-component .login-text {
+    font-size: 200%;
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.login-page .login-component .inner-login-component .login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page .login-component .inner-login-component .login-form .label-email {
+    font-family: 'Questrial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.login-page .login-component .inner-login-component .login-form .label-email .email-input {
+    margin-top: 10px;
+    border-style: none;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+.login-page .login-component .inner-login-component .login-form .label-email .email-input::placeholder {
+    color: #BCBEC0;
+    position: relative;
+    font-family: 'Questrial', sans-serif;
+}
+
+.login-page .login-component .inner-login-component .login-form .label-password {
+    font-family: 'Questrial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.login-page .login-component .inner-login-component .login-form .label-password .password-input {
+    margin-top: 10px;
+    border-style: none;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+.login-page .login-component .inner-login-component .login-form .label-password .password-input::placeholder {
+    color: #BCBEC0;
+    position: relative;
+    font-family: 'Questrial', sans-serif;
+}
+
+.login-page .login-component .inner-login-component .login-form .forgot-password {
+    text-decoration: none;
+    color: #2A1E17;
+    margin-bottom: 40px;
+}
+
+.login-page .login-component .inner-login-component .login-form .submit-button {
+    background-color: #F25019;
+    height: 50px;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
+    font-size: 150%;
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.login-page .login-component .inner-login-component .lower-text {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-page .login-component .inner-login-component .lower-text .starting-text {
+    color: #2A1E17;
+    font-family: 'Questrial', sans-serif;
+    font-size: 120%;
+}
+
+.login-page .login-component .inner-login-component .lower-text .register-text {
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+    font-size: 120%;
+    text-decoration: none;
+    color: #2A1E17;
+}
+
+.login-page .picture-component {
+    width: 50%;
+    display: flex;
+}
+
+.login-page .picture-component .character-image {
+    height: 90%;
+    width: 90%;
+    object-fit: cover;
+}
+
+.login-page .picture-component .cactus-image {
+    height: 70%;
+    width: 80%;
+    position: relative;
+    right: 21%;
+    top: 10%;
+}
