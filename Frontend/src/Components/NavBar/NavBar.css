@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+.source-sans-3 {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+.navbar-header {
+    display: flex;
+    background-color: #E6E6FA;
+    height: 102px;
+    padding: 1.8%;
+}
+.navbar-header .navbar-company-logo {
+    margin-right: 158px;
+    color: black;
+    margin-left: 60px;
+}
+.navbar-header .nav-content{
+    text-decoration: none;
+    margin-right: 10%;
+    margin-top: 0.8%;
+    margin-bottom: 1px;
+ 
+}   
+
+.navbar-header .nav-content .nav-a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    
+    margin-right: 60px;
+    padding-top: 53px;
+    margin-top: 1px;
+    font-size: 20px;
+}
+.navbar-header .nav-login {
+    color: aliceblue;
+    background-color: darkviolet;
+    border-color: white;
+    border: solid;
+    font-size: 20px;
+    padding: 15px 34px 15px 34px;
+    border-radius: 35px;
+    border: black;
+    /*font-weight: 600;*/
+}
