@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap');
+
+.contact-us-page {
+    background-color: #E6E6FA;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-us-page .component-one {
+    height: 96%;
+    background-color: #503B5D;
+    width: 48%;
+    border-radius: 5%;
+}
+
+.contact-us-page .component-one .contact-us-header {
+    font-size: 300%;
+    margin-top: 5%;
+    margin-left: 53%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+.contact-us-page .component-one .description {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.contact-us-page .component-one .contact-form {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-us-page .component-one .contact-form textarea,
+.contact-us-page .component-one .contact-form input {
+    border-color: white;
+    background-color: #503B5D;
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    padding-left: 3%;
+    color: white;
+}
+
+.contact-us-page .component-one .contact-form textarea {
+    padding-top: 3%;
+    width: 100%;
+    height: 200px;
+    color: white;
+}
+
+.contact-us-page .component-one .contact-form input::placeholder,
+.contact-us-page .component-one .contact-form textarea::placeholder {
+    color: #ECF2FA;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+.contact-us-page .component-one .contact-form button {
+    width: 100%;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contact-us-page .component-one .contact-form button:hover {
+    background-color: #684d75;
+}
+
+.contact-us-page .component-two {
+    width: 48%;
+    height: 96%;
+    border-radius: 5%;
+}
+
+.contact-us-page .component-two iframe {
+    border-radius: 5%;
+    height: 100%;
+    width: 100%;
+}
