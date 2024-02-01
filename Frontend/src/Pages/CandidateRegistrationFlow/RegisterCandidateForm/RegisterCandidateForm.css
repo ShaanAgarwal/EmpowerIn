@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.register-candidate-form {
+    background-color: #E6E6FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-candidate-form .register-candidate-form-component {
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    padding-top: 5%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-radius: 50px;
+}
+
+.register-candidate-form .register-candidate-form-component .register-candidate-form-text {
+    margin-left: 20%;
+    font-family: 'Archivo', sans-serif;
+    margin-bottom: 20px;
+}
+
+.register-candidate-form .register-candidate-form-component .form-fields {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.register-candidate-form .register-candidate-form-component .form-fields .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-candidate-form .register-candidate-form-component .form-fields .form-group label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 80%;
+    margin-bottom: 10px;
+}
+
+.register-candidate-form .register-candidate-form-component .form-fields .form-group input {
+    border-color: #9b9b9b;
+    border-width: 1px;
+    height: 30px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.register-candidate-form .register-candidate-form-component .button-container {
+    background-color: #F0F0F4;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-candidate-form .register-candidate-form-component .button-container .submit-button {
+    background-color: #04D361;
+    width: 80%;
+    border-style: none;
+    height: 35px;
+    color: #FFFFFF;
+}

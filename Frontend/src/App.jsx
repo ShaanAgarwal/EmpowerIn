@@ -8,6 +8,8 @@ import ContactUsResponsePage from "./Pages/ContactUsResponsePage/ContactUsRespon
 import ForgotPasswordEnterEmailPage from "./Pages/ForgotPasswordFlow/ForgotPasswordEnterEmailPage/ForgotPasswordEnterEmailPage";
 import ForgotPasswordEnterOTPPage from "./Pages/ForgotPasswordFlow/ForgotPasswordEnterOTPPage/ForgotPasswordEnterOTPPage";
 import ForgotPasswordResetPasswordPage from "./Pages/ForgotPasswordFlow/ForgotPasswordResetPasswordPage/ForgotPasswordResetPasswordPage";
+import RegisterCandidateForm from "./Pages/CandidateRegistrationFlow/RegisterCandidateForm/RegisterCandidateForm";
+import RegisterCandidateOTPVerification from "./Pages/CandidateRegistrationFlow/RegisterCandidateOTPVerification/RegisterCandidateOTPVerification";
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/forgotPassword-enterEmail" element={<ForgotPasswordEnterEmailPage />} />
         <Route path="/forgotPassword-enterOTP" element={<ForgotPasswordEnterOTPPage />} />
         <Route path="/forgotPassword-resetPassword" element={<ForgotPasswordResetPasswordPage />} />
+        <Route path="/registerCandidate-form" element={<RegisterCandidateForm />} />
+        <Route path="/registerCandidate-OTPVerification" element={<RegisterCandidateOTPVerification />} />
       </Routes>
     </BrowserRouter>
   );
