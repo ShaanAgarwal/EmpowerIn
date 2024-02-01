@@ -9,9 +9,30 @@ const ForgotPasswordEnterOTPPage = () => {
   const handleInputChange = (index, value) => {
     const nextIndex = index + 1;
     const lastInputIndex = 4;
-    
+
     if (nextIndex <= lastInputIndex && value !== "") {
       document.getElementById(`otp-input-${nextIndex}`).focus();
+    }
+  };
+
+  const handleKeyDown = (index, e) => {
+    if (e.keyCode == 8) {
+      handleBackspace(index);
+    }
+  };
+
+  const handleBackspace = (index) => {
+    const currentInput = document.getElementById(`otp-input-${index}`);
+    const previousIndex = index - 1;
+
+    if (currentInput && previousIndex >= 1) {
+      currentInput.value = "";
+      const previousInput = document.getElementById(
+        `otp-input-${previousIndex}`
+      );
+      if (previousInput) {
+        previousInput.focus();
+      }
     }
   };
 
@@ -35,6 +56,7 @@ const ForgotPasswordEnterOTPPage = () => {
                     className="otp-input"
                     maxLength="1"
                     onChange={(e) => handleInputChange(index, e.target.value)}
+                    onKeyDown={(e) => handleKeyDown(index, e)}
                   />
                 ))}
               </div>
