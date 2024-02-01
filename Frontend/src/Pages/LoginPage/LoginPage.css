@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-.test-navbar {
-    height: 10vh;
-    background-color: red;
-}
-
 .login-page {
     background-color: #E6E6FA;
     height: 85vh;
