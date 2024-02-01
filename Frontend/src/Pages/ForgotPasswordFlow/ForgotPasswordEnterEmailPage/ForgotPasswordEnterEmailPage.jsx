@@ -13,9 +13,9 @@ const ForgotPasswordEnterEmailPage = () => {
       <div className="forgot-password-enter-email-page">
         <div className="enter-email-component">
           <div className="inner-enter-email-component">
-            <div className="welcome-back-text">Forgot Password?</div>
-            <div className="login-text">Enter Email Address</div>
-            <form className="login-form">
+            <div className="forgot-password-text">Forgot Password?</div>
+            <div className="enter-email-address-text">Enter Email Address</div>
+            <form className="email-form">
               <label className="label-email">
                 Email
                 <input
