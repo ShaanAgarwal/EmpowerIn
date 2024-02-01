@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import "./ForgotPasswordResetPasswordPage.css";
 import NavBar from "../../../Components/NavBar/NavBar";
 import Footer from "../../../Components/Footer/Footer";
@@ -29,10 +29,10 @@ const ForgotPasswordResetPasswordPage = () => {
     <>
       <NavBar />
       <div className="forgot-password-reset-password-page">
-        <div className="login-component">
-          <div className="inner-login-component">
-            <div className="welcome-back-text">Reset Password</div>
-            <form onSubmit={handleSubmit} className="login-form">
+        <div className="reset-password-component">
+          <div className="inner-reset-password-component">
+            <div className="reset-password-text">Reset Password</div>
+            <form onSubmit={handleSubmit} className="reset-password-form">
               <label className="label-password">
                 Enter New Password
                 <input
@@ -41,7 +41,7 @@ const ForgotPasswordResetPasswordPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  placeholder="Password"
+                  placeholder="Choose A Strong Password"
                   className="password-input"
                 />
               </label>
