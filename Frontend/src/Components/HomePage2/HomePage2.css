@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@600&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+.home2{
+    display: flex;
+    flex-direction: row;
+    background-color: #E6E6FA;
+}
+
+.left-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.home2 .left-text .first-line{
+    font-family: "Inter", sans-serif;
+    width: 594px;
+    height: 64px;
+    margin-left: 89px;
+    font-size: 53px;
+    font-weight: 800;
+    margin-top: 18%;
+}
+
+.home2 .left-text .second-line{
+    width: 573px;
+    height: 32px;
+    margin-left: 91px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    margin-top: 2%;
+}
+
+.home2 .right-small-images{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.home2 .right-small-images .first-row-img{
+    display: flex;
+    flex-direction: row;
+}
+
+.home2 .right-small-images .second-row-img{
+    display: flex;
+    flex-direction: row;
+    margin-top: 9%;
+}
+
+
+.img1{
+    Width:141px;
+    Height:139px;
+    margin-top: 9%;
+    margin-right: 20%;
+}
+.img2{
+    Width:117px;
+    Height:114px;
+    margin-top: 10%;
+    margin-right: 20%;
+}
+.img3{
+    Width:98px;
+    Height:98px;
+    margin-top: 12%;
+    margin-left: 3%;
+}
+.img4{
+    Width:111px;
+    Height:139px;
+    margin-left: 5.5%;
+    margin-right: 26%;
+
+}
+.img5{
+    Width:112px;
+    Height:112px;
+    margin-right: 22%;
+
+}
+.img6{
+    Width:103px;
+    Height:103px;
+    margin-top: 1.8%;
+}
