@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import "./LoginPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CharacterImage from "../../assets/Images/Authentication/Character-Working.png";
 import Cactus from "../../assets/Images/Authentication/Cactus.png";
 import NavBar from "../../Components/NavBar/NavBar";
+import axios from "axios";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -20,10 +23,20 @@ const LoginPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Email:", formData.email);
-    console.log("Password:", formData.password);
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/userLogin`,
+        formData
+      );
+      if (response.data.success === true) {
+        localStorage.setItem("JWT_TOKEN", response.data.token);
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
