@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const ForgotPassword = require('../Models/forgotPasswordSchema');
 const User = require('../Models/userSchema');
+const { sendEmailSingle } = require('../Utils/EmailSendingViaNodemailer/sendEmailSingle');
 
 const registerEmailForgotPassword = async (req, res) => {
     try {
@@ -17,6 +18,7 @@ const registerEmailForgotPassword = async (req, res) => {
             otp: 1234,
         });
         await newForgotPasswordRegistration.save();
+        await sendEmailSingle(email, 'Forgot Password OTP', '1234')
         return res.status(200).json({ message: "Email successfully registered for generating password", success: true });
     } catch (error) {
         return res.status(500).json({ message: "Internal Server Error", success: false });
