@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@600&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+.homepage-top-component {
+  display: flex;
+  flex-direction: row;
+  background-color: #e6e6fa;
+}
+
+.homepage-top-component .left-home {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7.8%;
+  margin-top: 4%;
+}
+
+.homepage-top-component .right-home {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4.18%;
+}
+
+.homepage-top-component .left-home .uppertext {
+  margin-right: 2%;
+}
+
+.homepage-top-component .left-home .uppertext .spantext {
+  margin-right: 3%;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22.5px;
+}
+
+.homepage-top-component .left-home .uppertext .span-cybersecurity {
+    color: #3498DB;
+}
+
+.homepage-top-component .left-home .uppertext .span-analytics {
+    color: #27AE60;
+}
+
+.homepage-top-component .left-home .uppertext .span-development {
+    color: #E74C3C;
+}
+
+.homepage-top-component .left-home .uppertext .span-infrastructure {
+    color: #F39C12;
+}
+
+.homepage-top-component .left-home .heading-home {
+  margin: 0px;
+}
+
+.homepage-top-component .left-home .heading-home .heading-text {
+  margin-right: 5px;
+  width: 608px;
+  height: 155px;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+  margin-bottom: 24px;
+  margin-top: 53px;
+}
+
+.homepage-top-component .left-home .subheading-home {
+  margin-right: 5px;
+}
+
+.homepage-top-component .left-home .subheading-home .subheading-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 5%;
+  width: 300px;
+}
+
+.homepage-top-component .left-home .home-buttons {
+  margin-right: 5px;
+  margin-top: 5%;
+  display: flex;
+  gap: 20px;
+}
+
+.homepage-top-component .left-home .home-buttons .btn {
+  width: 150px;
+  height: 48px;
+  padding: 12px;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 8px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.homepage-top-component .left-home .home-buttons .btn1 {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+}
+
+.homepage-top-component .left-home .home-buttons .btn2 {
+  background-color: #2ecc71;
+  color: white;
+  text-align: center;
+}
+
+.homepage-top-component .right-home .image-right {
+  margin: 0px;
+}
+
+.homepage-top-component .right-home .image-right img {
+  margin-right: 25px;
+
+  height: 94%;
+  margin-left: 25%;
+}
