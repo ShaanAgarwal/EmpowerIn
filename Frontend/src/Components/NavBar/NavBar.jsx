@@ -1,9 +1,16 @@
 import React from 'react';
 import "./NavBar.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CompanyLogo from "../../assets/Images/CompanyLogo/Company-Logo.png"
 
 const NavBar = () => {
+
+  const navigate = useNavigate();
+
+  const navigateLoginPage = async () => {
+    navigate('/login');
+  }
+
   return (
     <div className="navbar-header">
       <div className="navbar-company-logo">
@@ -16,7 +23,7 @@ const NavBar = () => {
         <Link to="/career" className="nav-a">Career</Link>
       </div>
       <div className="nav-button">
-        <button className="nav-login">Login</button>
+        <button onClick={navigateLoginPage} className="nav-login">Login</button>
       </div>
     </div>
   );

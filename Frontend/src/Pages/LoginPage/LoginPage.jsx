@@ -72,7 +72,7 @@ const LoginPage = () => {
                   className="password-input"
                 />
               </label>
-              <Link className="forgot-password">Forgot Password?</Link>
+              <Link to='/forgotPassword-enterEmail' className="forgot-password">Forgot Password?</Link>
               <button type="submit" className="submit-button">
                 Sign in
               </button>
