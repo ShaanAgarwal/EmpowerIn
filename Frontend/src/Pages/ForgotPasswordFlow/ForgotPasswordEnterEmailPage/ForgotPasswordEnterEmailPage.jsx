@@ -26,6 +26,7 @@ const ForgotPasswordEnterEmailPage = () => {
         { email }
       );
       if(response.status === 200) {
+        localStorage.setItem('email', email);
         navigate("/forgotPassword-enterOTP");
       }
     } catch (error) {
