@@ -54,7 +54,6 @@ const ForgotPasswordEnterOTPPage = () => {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/forgotPassword/verifyOtpForgotPassword`, {
         email, otp
       });
-      console.log(response);
       if(response.status === 200) {
         navigate('/forgotPassword-resetPassword');
       }
