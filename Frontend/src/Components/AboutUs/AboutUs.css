@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@600&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@600&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+.about-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #E6E6FA;
+    padding-bottom: 5%;
+   
+
+}
+
+ .about-container .about-top{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    width: 751px;
+    height: 236px;
+}
+
+ .about-container .about-top .about-heading{
+    text-align: center;
+    font-size: 96px;
+    font-weight: 700;
+    line-height: bhi120.9px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 2.5%;
+    
+}
+
+.about-container .about-top .about-para{
+    font-family: "Lato", sans-serif;
+    width: 751px;
+    height: 116px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 24px;
+
+}
+
+.about-container .about-middle{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.about-container .about-middle .preparing-line{
+    font-family: "Source Serif 4", serif;
+    width: 46%;
+    margin-left:29%;
+    gap: 15px;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 56px;
+    margin-top: 7%;
+}
+.about-container .about-middle .yellow-line{
+    margin-left: 41%;
+}
+
+.about-container .about-middle .firstmiddle{
+    display: flex;
+    flex-direction: row; 
+    margin-top: 5%; 
+}
+
+.about-container .about-middle .firstmiddle .left-firstmiddle{
+    display: flex;
+    flex-direction: column; 
+    margin-left: 160px;
+    width: 535px;
+    height: 300px;
+}
+
+.about-container .about-middle .firstmiddle .left-firstmiddle .heading-middle1{
+    font-family: "Source Serif 4", serif;
+    margin-top: 6%;
+    margin-bottom: 3%;
+    font-weight: 600;
+    font-size: 36px;
+
+}
+.about-container .about-middle .firstmiddle .left-firstmiddle .subheading1{
+    font-family: "Lato", sans-serif;
+    line-height: 24px;
+    font-size: 20px;
+    width: 90%;
+    font-weight: 400;
+}
+
+.about-container .about-middle .firstmiddle .left-firstmiddle .view-more1{
+    font-family: "Lato", sans-serif;
+    background-color: #49108B;
+    width: 25%;
+    color: white;
+    padding: 12px;
+    margin-top: 4.5%;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+
+.about-container .about-middle .firstmiddle .right-firstmiddle .middle-img1{
+    margin-left: 15%;
+    width: 85%;
+    height: 85%;
+}
+
+.about-container .about-middle .secondmiddle{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+
+.about-container .about-middle .secondmiddle .left-secondmiddle .middle-img2 {
+    margin-left: 30%;
+    width: 85%;
+    height: 85%;
+}
+
+.about-container .about-middle .secondmiddle .right-secondmiddle{
+    display: flex;
+    flex-direction: column; 
+    margin-left: 17%;
+    width: 535px;
+    height: 300px;
+}
+.about-container .about-middle .secondmiddle .right-secondmiddle .heading-middle2{
+    font-family: "Source Serif 4", serif;
+    width: 94%;
+    text-align: right;
+    margin-top: 6%;
+    margin-bottom: 3%;
+    font-weight: 600;
+    font-size: 36px;
+
+}
+.about-container .about-middle .secondmiddle .right-secondmiddle .subheading2{
+    font-family: "Lato", sans-serif;
+    text-align: right;
+    line-height: 24px;
+    font-size: 20px;
+    width: 94%;
+    font-weight: 400;
+}
+
+.about-container .about-middle .secondmiddle .right-secondmiddle .view-more2{
+    font-family: "Lato", sans-serif;
+    background-color: #49108B;
+    width: 25%;
+    color: white;
+    padding: 12px;
+    margin-top: 4.5%;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 69%;
+}
+
+.about-container .about-middle .thirdmiddle{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+
+.about-container .about-middle .thirdmiddle .left-thirdmiddle{
+    display: flex;
+    flex-direction: column; 
+    margin-left: 160px;
+    width: 535px;
+    height: 300px;
+}
+
+.about-container .about-middle .thirdmiddle .left-thirdmiddle .heading-middle3{
+    font-family: "Source Serif 4", serif;
+    margin-top: 6%;
+    margin-bottom: 3%;
+    font-weight: 600;
+    font-size: 36px;
+
+}
+.about-container .about-middle .thirdmiddle .left-thirdmiddle .subheading3{
+    font-family: "Lato", sans-serif;
+    line-height: 24px;
+    font-size: 20px;
+    width: 90%;
+    font-weight: 400;
+}
+
+.about-container .about-middle .thirdmiddle .left-thirdmiddle .view-more3{
+    font-family: "Lato", sans-serif;
+    background-color: #49108B;
+    width: 25%;
+    color: white;
+    padding: 12px;
+    margin-top: 4.5%;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.about-container .about-middle .thirdmiddle .right-thirdmiddle .middle-img3{
+    margin-left: 15%;
+    width: 85%;
+    height: 85%;
+    rotate: -0.65deg;
+}
+
+.about-container .why-it-works{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    margin-left: 6%;
+}
+
+.about-container .why-it-works .why-works-line{
+    font-family: "Source Serif 4", serif;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 56px;
+    margin-left: 39%;
+    width: 25%;
+    margin-right: 20%;
+}
+
+.about-container .why-it-works .yellow-line{
+    height: 100%;
+    margin-top: 0.2%;
+    margin-left: 37.7%;
+}
+
+.about-container .why-it-works .three-cards{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    margin-left: 4%;
+    margin-top: 4%;
+}
+
+.about-container .why-it-works .three-cards .card1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 9%;
+}
+
+.about-container .why-it-works .three-cards .card1 .image1{
+    width: 38%;
+    margin-left: 6%;
+}
+
+.about-container .why-it-works .three-cards .card1 .heading-card1{
+    font-family: "Source Serif 4", serif;
+    text-align: center;
+    width: 228px;
+    height: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+
+.about-container .why-it-works .three-cards .card1 .subheading-card1{
+    text-align: center;
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+}
+
+.about-container .why-it-works .three-cards .card2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 9%;
+}
+
+.about-container .why-it-works .three-cards .card2 .image2{
+    width: 48%;
+}
+
+.about-container .why-it-works .three-cards .card2 .heading-card2{
+    font-family: "Source Serif 4", serif;
+    width: 276px;
+    height: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+
+.about-container .why-it-works .three-cards .card2 .subheading-card2{
+text-align: center;
+font-size: 18px;
+font-family: "Lato", sans-serif;
+
+}
+
+.about-container .why-it-works .three-cards .card3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container .why-it-works .three-cards .card3 .heading-card3{
+    font-family: "Source Serif 4", serif;
+    width: 274px;
+    height: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+
+.about-container .why-it-works .three-cards .card3 .subheading-card3{
+    text-align: center;
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+
+}
