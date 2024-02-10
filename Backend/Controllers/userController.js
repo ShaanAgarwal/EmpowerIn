@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require("../Models/userSchema");
+const UserLoginAPI = require("../Models/Audit Logs/User Controller/userLoginAPI");
 
 const testUser = async (req, res) => {
     try {
@@ -45,19 +46,23 @@ const userLogin = async (req, res) => {
             return res.status(400).json({ message: "User with given email does not exist.", success: false });
         };
         if (userExist.isBlocked) {
+            await UserLoginAPI.create({ email: email, action: "Account is Blocked", success: false });
             return res.status(400).json({ message: "Account is Blocked", success: false });
         };
         if (userExist.loginAttempts >= 6) {
             await User.findByIdAndUpdate(userExist._id, { isBlocked: true });
+            await UserLoginAPI.create({ email: email, action: "Account gets Blocked due to failed login attempts", success: false });
             return res.status(400).json({ message: "Account is Blocked", success: false });
         };
         const passwordMatch = await bcrypt.compare(password, userExist.password);
         if (!passwordMatch) {
             await User.findByIdAndUpdate(userExist._id, { $inc: { loginAttempts: 1 } });
+            await UserLoginAPI.create({ email: email, action: "Incorrect Password", success: false });
             return res.status(401).json({ message: "Incorrect password", success: false });
         };
         await User.findByIdAndUpdate(userExist._id, { loginAttempts: 0 });
         const token = jwt.sign({ userId: userExist._id, email: userExist.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        await UserLoginAPI.create({ email: email, action: "Login Successful", success: true });
         return res.status(200).json({ message: "The user has Logged in successfully", success: true, userExist, token });
     } catch (error) {
         console.log(error);
