@@ -40,17 +40,23 @@ const userLogin = async (req, res) => {
         if (!email || !password) {
             return res.status(400).json({ message: "All fields are required", success: false });
         };
-        const userExist = await User.findOne({ email: email });
+        let userExist = await User.findOne({ email: email });
         if (!userExist) {
             return res.status(400).json({ message: "User with given email does not exist.", success: false });
         };
-        if (userExist.isBlocked == true) {
+        if (userExist.isBlocked) {
+            return res.status(400).json({ message: "Account is Blocked", success: false });
+        };
+        if (userExist.loginAttempts >= 6) {
+            await User.findByIdAndUpdate(userExist._id, { isBlocked: true });
             return res.status(400).json({ message: "Account is Blocked", success: false });
         };
         const passwordMatch = await bcrypt.compare(password, userExist.password);
         if (!passwordMatch) {
+            await User.findByIdAndUpdate(userExist._id, { $inc: { loginAttempts: 1 } });
             return res.status(401).json({ message: "Incorrect password", success: false });
         };
+        await User.findByIdAndUpdate(userExist._id, { loginAttempts: 0 });
         const token = jwt.sign({ userId: userExist._id, email: userExist.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
         return res.status(200).json({ message: "The user has Logged in successfully", success: true, userExist, token });
     } catch (error) {
