@@ -10,7 +10,7 @@ const testUser = async (req, res) => {
     };
 };
 
-const testUserRegister = async (req, res) => {
+const userRegister = async (req, res) => {
     try {
         const { firstName, lastName, email, userType, password } = req.body;
         if (!firstName || !lastName || !email || !userType || !password) {
@@ -27,14 +27,14 @@ const testUserRegister = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newTestUser = new User({ firstName: firstName, lastName: lastName, email: email, userType: userType, password: hashedPassword });
         await newTestUser.save();
-        return res.status(201).json({ message: "Successful in creating a new Test User", success: true, newTestUser });
+        return res.status(201).json({ message: "Successful in creating a new User", success: true, newTestUser });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Internal Server Error", success: false });
     };
 };
 
-const testuserLogin = async (req, res) => {
+const userLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
         if (!email || !password) {
@@ -56,4 +56,4 @@ const testuserLogin = async (req, res) => {
     };
 };
 
-module.exports = { testUser, testUserRegister, testuserLogin };
+module.exports = { testUser, userRegister, userLogin };
