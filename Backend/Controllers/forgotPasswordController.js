@@ -13,6 +13,9 @@ const registerEmailForgotPassword = async (req, res) => {
         if (!userExist) {
             return res.status(400).json({ message: "User with the given password does not exist.", success: false });
         };
+        if (userExist.isBlocked == true) {
+            return res.status(400).json({ message: "Account is blocked", success: false });
+        };
         const newForgotPasswordRegistration = new ForgotPassword({
             email: userExist._id,
             otp: 1234,
@@ -34,6 +37,9 @@ const verifyOtpForgotPassword = async (req, res) => {
         const userExist = await User.findOne({ email: email });
         if (!userExist) {
             return res.status(400).json({ message: "User does not exist", success: false });
+        };
+        if (userExist.isBlocked == true) {
+            return res.status(400).json({ message: "Account is blocked", success: false });
         };
         const userForgotPassword = await ForgotPassword.findOne({ email: userExist._id });
         if (!userForgotPassword) {
@@ -60,6 +66,9 @@ const passwordResetForgotPassword = async (req, res) => {
         const existUser = await User.findOne({ email: email });
         if (!existUser) {
             return res.status(400).json({ message: "User with the given email does not exist.", success: false });
+        };
+        if (existUser.isBlocked == true) {
+            return res.status(400).json({ message: "Account is Blocked", success: false });
         };
         const hashedPassword = await bcrypt.hash(password, 10);
         existUser.password = hashedPassword;
