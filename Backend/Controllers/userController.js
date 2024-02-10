@@ -44,6 +44,9 @@ const userLogin = async (req, res) => {
         if (!userExist) {
             return res.status(400).json({ message: "User with given email does not exist.", success: false });
         };
+        if (userExist.isBlocked == true) {
+            return res.status(400).json({ message: "Account is Blocked", success: false });
+        };
         const passwordMatch = await bcrypt.compare(password, userExist.password);
         if (!passwordMatch) {
             return res.status(401).json({ message: "Incorrect password", success: false });

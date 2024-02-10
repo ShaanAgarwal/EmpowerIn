@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ['Admin', 'HeadHR', 'HR', 'Candidate']
+    },
+    isBlocked: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 }, { timestamps: true });
 
