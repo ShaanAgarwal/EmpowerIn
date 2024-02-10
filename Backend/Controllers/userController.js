@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require("../Models/userSchema");
 const UserLoginAPI = require("../Models/Audit Logs/User Controller/userLoginAPI");
+const UserRegisterAPI = require("../Models/Audit Logs/User Controller/userRegisterAPI");
 
 const testUser = async (req, res) => {
     try {
@@ -19,15 +20,18 @@ const userRegister = async (req, res) => {
         };
         const allowedUserTypes = ["Admin", "HeadHR", "HR", "Candidate"];
         if (!allowedUserTypes.includes(userType)) {
+            await UserRegisterAPI.create({firstName: firstName, lastName: lastName, email: email, userType: userType, action: "Incorrect User Type", success: false});
             return res.status(400).json({ message: "Invalid value for User Type", success: false });
         };
         const existingUserEmail = await User.findOne({ email: email });
         if (existingUserEmail) {
+            await UserRegisterAPI.create({firstName: firstName, lastName: lastName, email: email, userType: userType, action: "Email Already Exists", success: false});
             return res.status(409).json({ message: "Email already exists.", success: false });
         };
         const hashedPassword = await bcrypt.hash(password, 10);
         const newTestUser = new User({ firstName: firstName, lastName: lastName, email: email, userType: userType, password: hashedPassword });
         await newTestUser.save();
+        await UserRegisterAPI.create({firstName: firstName, lastName: lastName, email: email, userType: userType, action: "User Successfully created", success: true});
         return res.status(201).json({ message: "Successful in creating a new User", success: true, newTestUser });
     } catch (error) {
         console.log(error);
