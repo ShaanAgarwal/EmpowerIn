@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const ForgotPassword = require('../Models/forgotPasswordSchema');
 const User = require('../Models/userSchema');
 const { sendEmailSingle } = require('../Utils/EmailSendingViaNodemailer/sendEmailSingle');
+const RegisterEmailForgotPasswordAPI = require("../Models/Audit Logs/Forgot Password Controller/registerEmailForgotPasswordAPI");
 
 const registerEmailForgotPassword = async (req, res) => {
     try {
@@ -11,12 +12,15 @@ const registerEmailForgotPassword = async (req, res) => {
         };
         const userExist = await User.findOne({ email: email });
         if (!userExist) {
+            await RegisterEmailForgotPasswordAPI.create({email: email, action: "Email with given password does not exist", success: false});
             return res.status(400).json({ message: "User with the given password does not exist.", success: false });
         };
         if (userExist.isBlocked == true) {
+            await RegisterEmailForgotPasswordAPI.create({email: email, action: "Account is Blocked", success: false});
             return res.status(400).json({ message: "Account is blocked", success: false });
         };
         if (userExist.forgotPassword == true) {
+            await RegisterEmailForgotPasswordAPI.create({email: email, action: "OTP has already been sent to email", success: false});
             return res.status(201).json({ message: "OTP had already been sent to your email", success: false });
         };
         const newForgotPasswordRegistration = new ForgotPassword({
@@ -27,6 +31,7 @@ const registerEmailForgotPassword = async (req, res) => {
         userExist.forgotPassword = true;
         await userExist.save();
         await sendEmailSingle(email, 'Forgot Password OTP', '1234')
+        await RegisterEmailForgotPasswordAPI.create({email: email, action: "Email successfully registered for generating password", success: true});
         return res.status(200).json({ message: "Email successfully registered for generating password", success: true });
     } catch (error) {
         return res.status(500).json({ message: "Internal Server Error", success: false });
