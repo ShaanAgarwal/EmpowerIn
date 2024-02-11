@@ -11,6 +11,10 @@ import ForgotPasswordResetPasswordPage from "./Pages/ForgotPasswordFlow/ForgotPa
 import RegisterCandidateForm from "./Pages/CandidateRegistrationFlow/RegisterCandidateForm/RegisterCandidateForm";
 import RegisterCandidateOTPVerification from "./Pages/CandidateRegistrationFlow/RegisterCandidateOTPVerification/RegisterCandidateOTPVerification";
 import CareerPage from "./Pages/CareerPage/CareerPage";
+import AdminBaseDashboard from "./Pages/Admin Pages/Admin Base Dashboard/AdminBaseDashboard";
+import HeadHRBaseDashboard from "./Pages/Head HR Pages/Head HR Base Dashboard/HeadHRBaseDashboard";
+import HRBaseDashboard from "./Pages/HR Pages/HR Base Dashboard/HRBaseDashboard";
+import CandidateBaseDashboard from "./Pages/Candidate Pages/Candidate Base Dashboard/CandidateBaseDashboard";
 
 const App = () => {
   return (
@@ -28,6 +32,10 @@ const App = () => {
         <Route path="/forgotPassword-resetPassword" element={<ForgotPasswordResetPasswordPage />} />
         <Route path="/registerCandidate-form" element={<RegisterCandidateForm />} />
         <Route path="/registerCandidate-OTPVerification" element={<RegisterCandidateOTPVerification />} />
+        <Route path="/admin-baseDashboard" element={<AdminBaseDashboard />} />
+        <Route path="/headHR-baseDashboard" element={<HeadHRBaseDashboard />} />
+        <Route path="/HR-baseDashboard" element={<HRBaseDashboard />} />
+        <Route path="/candidate-baseDashboard" element={<CandidateBaseDashboard />} />
       </Routes>
     </BrowserRouter>
   );

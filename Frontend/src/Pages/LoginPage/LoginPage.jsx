@@ -32,11 +32,20 @@ const LoginPage = () => {
       );
       if (response.data.success === true) {
         localStorage.setItem("JWT_TOKEN", response.data.token);
-        navigate("/");
-      }
+        const user = response.data.userExist.userType;
+        if (user == 'Admin') {
+          navigate('/admin-baseDashboard');
+        } else if (user == 'HeadHR') {
+          navigate('/headHR-baseDashboard');
+        } else if (user == 'HR') {
+          navigate('/HR-baseDashboard');
+        } else {
+          navigate('/candidate-baseDashboard');
+        };
+      };
     } catch (error) {
       console.log(error);
-    }
+    };
   };
 
   return (
