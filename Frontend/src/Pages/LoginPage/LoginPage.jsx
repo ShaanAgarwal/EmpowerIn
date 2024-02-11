@@ -79,7 +79,7 @@ const LoginPage = () => {
             </form>
             <div className="lower-text">
               <div className="starting-text">Don't have an account yet?</div>
-              <Link className="register-text">Register for free</Link>
+              <Link className="register-text" to='/registerCandidate-form'>Register for free</Link>
             </div>
           </div>
         </div>
