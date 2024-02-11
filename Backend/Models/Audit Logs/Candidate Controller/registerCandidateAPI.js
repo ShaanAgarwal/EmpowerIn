@@ -17,14 +17,6 @@ const registerCandidateAPISchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    linkedinURL: {
-        type: String,
-        required: true,
-    },
-    aboutSection: {
-        type: String,
-        required: true,
-    },
     action: {
         type: String,
         required: true,

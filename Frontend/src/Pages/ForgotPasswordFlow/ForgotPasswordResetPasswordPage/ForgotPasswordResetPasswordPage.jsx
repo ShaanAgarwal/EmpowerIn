@@ -33,7 +33,6 @@ const ForgotPasswordResetPasswordPage = () => {
         password: formData.password,
         confirmPassword: formData.confirmPassword,
       });
-      console.log(response);
       if (response.status === 200) {
         navigate('/');
       };

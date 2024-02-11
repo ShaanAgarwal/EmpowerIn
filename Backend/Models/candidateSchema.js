@@ -12,11 +12,9 @@ const candidateSchema = new mongoose.Schema({
     },
     linkedinURL: {
         type: String,
-        required: true,
     },
     aboutSection: {
         type: String,
-        required: true,
     },
 }, { timestamps: true });
 

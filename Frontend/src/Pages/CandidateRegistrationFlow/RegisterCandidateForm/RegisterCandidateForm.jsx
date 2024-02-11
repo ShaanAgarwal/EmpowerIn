@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./RegisterCandidateForm.css";
 import NavBar from "../../../Components/NavBar/NavBar";
 import Footer from "../../../Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const RegisterCandidateForm = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    emailAddress: "",
+    email: "",
     phoneNumber: "",
     password: "",
     confirmPassword: "",
@@ -18,9 +23,17 @@ const RegisterCandidateForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/candidate/registerCandidate`, formData);
+      if(response.status === 200) {
+        localStorage.setItem('email', formData.email);
+        navigate('/registerCandidate-OTPVerification');
+      };
+    } catch (error) {
+      console.error(error);
+    };
   };
 
   return (
@@ -56,12 +69,12 @@ const RegisterCandidateForm = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="emailAddress">Email Address</label>
+                <label htmlFor="email">Email Address</label>
                 <input
                   type="email"
-                  id="emailAddress"
-                  name="emailAddress"
-                  value={formData.emailAddress}
+                  id="email"
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
                   required
                 />
