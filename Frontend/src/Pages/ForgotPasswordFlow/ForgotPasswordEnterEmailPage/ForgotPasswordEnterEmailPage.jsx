@@ -19,7 +19,6 @@ const ForgotPasswordEnterEmailPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/forgotPassword/registerEmailForgotPassword`,
@@ -28,10 +27,13 @@ const ForgotPasswordEnterEmailPage = () => {
       if(response.status === 200) {
         localStorage.setItem('email', email);
         navigate("/forgotPassword-enterOTP");
-      }
+      } else if(response.data.message == 'OTP had already been sent to your email') {
+        localStorage.setItem('email', email);
+        navigate('/forgotPassword-enterOTP');
+      };
     } catch (error) {
       console.error('Error submitting form:', error);
-    }
+    };
   };
 
   return (
@@ -60,7 +62,7 @@ const ForgotPasswordEnterEmailPage = () => {
             </form>
             <div className="lower-text">
               <div className="starting-text">Don't have an account yet?</div>
-              <Link className="register-text">Register for free</Link>
+              <Link className="register-text" to='/registerCandidate-form'>Register for free</Link>
             </div>
           </div>
         </div>

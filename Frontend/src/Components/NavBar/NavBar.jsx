@@ -9,11 +9,15 @@ const NavBar = () => {
 
   const navigateLoginPage = async () => {
     navigate('/login');
-  }
+  };
+
+  const navigateHomePage = async () => {
+    navigate('/');
+  };
 
   return (
     <div className="navbar-header">
-      <div className="navbar-company-logo">
+      <div className="navbar-company-logo" onClick={navigateHomePage}>
         <img src={CompanyLogo} alt="Company Logo" className='company-logo-picture'></img>
       </div>
       <div className="nav-content">

@@ -22,7 +22,22 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ['Admin', 'HeadHR', 'HR', 'Candidate']
-    }
+    },
+    isBlocked: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    loginAttempts: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    forgotPassword: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

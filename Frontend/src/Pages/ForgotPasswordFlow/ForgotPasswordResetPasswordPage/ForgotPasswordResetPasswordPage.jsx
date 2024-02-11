@@ -1,15 +1,19 @@
 import React, { useState } from "react";
+import axios from "axios"; // Import Axios library
 import "./ForgotPasswordResetPasswordPage.css";
 import NavBar from "../../../Components/NavBar/NavBar";
 import Footer from "../../../Components/Footer/Footer";
 import CharacterImage from "../../../assets/Images/Authentication/Character-Working.png";
 import Cactus from "../../../assets/Images/Authentication/Cactus.png";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPasswordResetPasswordPage = () => {
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,10 +23,22 @@ const ForgotPasswordResetPasswordPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Password:", formData.password);
-    console.log("Confirm Password:", formData.confirmPassword);
+
+    try {
+      const email = localStorage.getItem('email');
+      const response = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/forgotPassword/passwordResetForgotPassword`, {
+        email: email,
+        password: formData.password,
+        confirmPassword: formData.confirmPassword,
+      });
+      if (response.status === 200) {
+        navigate('/');
+      };
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

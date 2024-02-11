@@ -1,7 +1,19 @@
 import React from "react";
 import "./HomePageTop.css";
+import { useNavigate } from "react-router-dom";
 
 function HomePageTop() {
+
+    const navigate = useNavigate();
+
+    const navigateContactUsPage = async() => {
+        navigate('/contactUs')
+    };
+
+    const navigateServicesPage = async() => {
+        navigate('/services');
+    };
+
     return (
         <div className="homepage-top-component">
             <div className="left-home">
@@ -22,8 +34,8 @@ function HomePageTop() {
                     </h3>
                 </div>
                 <div className="home-buttons">
-                    <div className="btn btn1">Contact Us</div>
-                    <div className="btn btn2">Explore</div>
+                    <div className="btn btn1" onClick={navigateContactUsPage}>Contact Us</div>
+                    <div className="btn btn2" onClick={navigateServicesPage}>Explore</div>
                 </div>
             </div>
             <div className="right-home">
