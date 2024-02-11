@@ -10,6 +10,7 @@
 }
 .navbar-header .navbar-company-logo {
   margin-left: 5%;
+  cursor: pointer;
 }
 
 .navbar-header .navbar-company-logo .company-logo-picture {
