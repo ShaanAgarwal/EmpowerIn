@@ -32,7 +32,12 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: 0
-    }
+    },
+    forgotPassword: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

@@ -28,7 +28,10 @@ const ForgotPasswordEnterEmailPage = () => {
       if(response.status === 200) {
         localStorage.setItem('email', email);
         navigate("/forgotPassword-enterOTP");
-      }
+      } else if(response.data.message == 'OTP had already been sent to your email') {
+        localStorage.setItem('email', email);
+        navigate('/forgotPassword-enterOTP');
+      };
     } catch (error) {
       console.error('Error submitting form:', error);
     }

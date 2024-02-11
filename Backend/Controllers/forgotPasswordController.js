@@ -16,6 +16,9 @@ const registerEmailForgotPassword = async (req, res) => {
         if (userExist.isBlocked == true) {
             return res.status(400).json({ message: "Account is blocked", success: false });
         };
+        if (userExist.forgotPassword == true) {
+            return res.status(201).json({ message: "OTP had already been sent to your email", success: false });
+        };
         const newForgotPasswordRegistration = new ForgotPassword({
             email: userExist._id,
             otp: 1234,
