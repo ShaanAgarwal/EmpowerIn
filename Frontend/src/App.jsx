@@ -10,6 +10,7 @@ import ForgotPasswordEnterOTPPage from "./Pages/ForgotPasswordFlow/ForgotPasswor
 import ForgotPasswordResetPasswordPage from "./Pages/ForgotPasswordFlow/ForgotPasswordResetPasswordPage/ForgotPasswordResetPasswordPage";
 import RegisterCandidateForm from "./Pages/CandidateRegistrationFlow/RegisterCandidateForm/RegisterCandidateForm";
 import RegisterCandidateOTPVerification from "./Pages/CandidateRegistrationFlow/RegisterCandidateOTPVerification/RegisterCandidateOTPVerification";
+import CareerPage from "./Pages/CareerPage/CareerPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/aboutUs" element={<AboutUsPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/career" element={<CareerPage />} />
         <Route path="/contactUs" element={<ContactUsPage />} />
         <Route path="/contactUsResponse" element={<ContactUsResponsePage />} />
         <Route path="/forgotPassword-enterEmail" element={<ForgotPasswordEnterEmailPage />} />
