@@ -4,6 +4,7 @@ const User = require('../Models/userSchema');
 const { sendEmailSingle } = require('../Utils/EmailSendingViaNodemailer/sendEmailSingle');
 const RegisterEmailForgotPasswordAPI = require("../Models/Audit Logs/Forgot Password Controller/registerEmailForgotPasswordAPI");
 const VerifyOTPForgotPasswordAPI = require("../Models/Audit Logs/Forgot Password Controller/verifyOTPForgotPasswordAPI");
+const PasswordResetForgotPasswordAPI = require('../Models/Audit Logs/Forgot Password Controller/passwordResetForgotPasswordAPI');
 
 const registerEmailForgotPassword = async (req, res) => {
     try {
@@ -77,13 +78,16 @@ const passwordResetForgotPassword = async (req, res) => {
             return res.status(400).json({ message: "All fields are required.", success: false });
         };
         if (password != confirmPassword) {
+            await PasswordResetForgotPasswordAPI.create({ email: email, action: "Both passwords are different", success: false });
             return res.status(400).json({ message: "Both passwords are different", success: false });
         };
         const existUser = await User.findOne({ email: email });
         if (!existUser) {
+            await PasswordResetForgotPasswordAPI.create({ email: email, action: "User with the given email does not exist.", success: false });
             return res.status(400).json({ message: "User with the given email does not exist.", success: false });
         };
         if (existUser.isBlocked == true) {
+            await PasswordResetForgotPasswordAPI.create({ email: email, action: "User with the given email does not exist", success: false });
             return res.status(400).json({ message: "Account is Blocked", success: false });
         };
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -92,6 +96,7 @@ const passwordResetForgotPassword = async (req, res) => {
         await existUser.save();
         const forgotPassword = await ForgotPassword.findOne({ email: existUser._id });
         await forgotPassword.deleteOne();
+        await PasswordResetForgotPasswordAPI.create({ email: email, action: "Password Reset Successful", success: true });
         return res.status(200).json({ message: "Password Reset Successful", success: true, existUser });
     } catch (error) {
         console.log(error);
