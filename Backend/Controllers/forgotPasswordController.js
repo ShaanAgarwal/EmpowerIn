@@ -24,6 +24,8 @@ const registerEmailForgotPassword = async (req, res) => {
             otp: 1234,
         });
         await newForgotPasswordRegistration.save();
+        userExist.forgotPassword = true;
+        await userExist.save();
         await sendEmailSingle(email, 'Forgot Password OTP', '1234')
         return res.status(200).json({ message: "Email successfully registered for generating password", success: true });
     } catch (error) {
@@ -75,7 +77,10 @@ const passwordResetForgotPassword = async (req, res) => {
         };
         const hashedPassword = await bcrypt.hash(password, 10);
         existUser.password = hashedPassword;
+        existUser.forgotPassword = false;
         await existUser.save();
+        const forgotPassword = await ForgotPassword.findOne({email: existUser._id});
+        await forgotPassword.deleteOne();
         return res.status(200).json({ message: "Password Reset Successful", success: true, existUser });
     } catch (error) {
         console.log(error);
