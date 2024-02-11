@@ -100,6 +100,7 @@
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 
 .login-page .login-component .inner-login-component .lower-text {
