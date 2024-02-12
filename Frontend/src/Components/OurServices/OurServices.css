@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+.services-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #E6E6FA;
+}
+.services-container .service-heading{
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    font-weight: 600;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 37%;
+    margin-bottom: 3%;
+    margin-top: 1.2%;
+}
+
+.services-container .service-heading .yellow-line{
+    margin-left: 10.6%;
+}
+.services-container .first-box{
+    margin-left: 115px;
+    margin-right: 115px;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.services-container .first-box .service-image1{
+    height: 260px;
+    width: 260px;
+    margin-right: 4%;
+}
+
+.services-container .first-box .service-image2{
+    margin-right: 4%;
+    margin-left: 6%;
+    height: 260px;
+    width: 260px;
+}
+
+.services-container .first-box .text1{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.services-container .first-box .text1 .heading1{
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 9%;
+    margin-top: 11%;
+    width: 92%;
+}
+
+.services-container .first-box .text1 .subheading1{
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    width: 310px;
+    text-align: justify;
+}
+
+.services-container .first-box .text2{
+    width: 20%;
+    margin-right: 9%;
+}
+
+.services-container .first-box .text2 .heading2{
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 19%;
+    margin-bottom: 9%;
+}
+
+.services-container .first-box .text2 .subheading2{
+    font-family: "Inter", sans-serif;
+    width: 285px;
+    font-size: 14px;
+    font-weight: 400;   
+    text-align: justify;
+}
+
+.services-container .second-box{
+    margin-left: 115px;
+    margin-right: 116px;
+    display: flex;
+    flex-direction: row;
+}
+
+.services-container .second-box .service-image3{
+    margin-right: 4%;
+  height: 250px;
+  width: 250px;
+}
+
+.services-container .second-box .service-image4{
+    margin-left: 6%;
+    margin-right: 4%;
+    height: 255px;
+    width: 255px;
+}
+
+
+.services-container .second-box .text3 .heading3{
+    font-family: "Inter", sans-serif;
+    margin-top: 16%;
+    margin-bottom: 9%;
+    font-size: 24px;
+    font-weight: 600;
+
+}
+
+.services-container .second-box .text3 .subheading3{
+    text-align: justify;
+    width: 310px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400
+
+}
+
+
+
+.services-container .second-box .text4 .heading4{
+    font-family: "Inter", sans-serif;
+    margin-top: 12%;
+    margin-bottom: 9%;
+    font-size: 24px;
+    font-weight: 600;
+
+}
+
+.services-container .second-box .text4 .subheading4{
+    text-align: justify;
+    width: 285px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400
+
+}
+
+
+.services-container .one-line{
+     font-weight: 500;
+    font-size: 20px;
+    font-family: 'Inter';
+    width: 642px;
+    margin-left: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.services-container .what-client-say{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(0, 80, 157, 1) ,rgba(255, 198, 0, 1));
+    padding-bottom: 4%;
+    padding-top: 5%;
+    color: white;
+}
+
+.services-container .what-client-say .headline{
+    font-family: 'Inter';
+    width: 26%;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 2%;
+    margin-left: 36%;
+}
+
+.services-container .what-client-say .client-says{
+    margin-left: 29%;
+    font-size: 20px;
+    width: 43%;
+    font-family: 'Inter';
+    font-weight: 500;
+    text-align: center;
+}
