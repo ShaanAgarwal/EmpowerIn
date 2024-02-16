@@ -15,6 +15,8 @@ import AdminBaseDashboard from "./Pages/Admin Pages/Admin Base Dashboard/AdminBa
 import HeadHRBaseDashboard from "./Pages/Head HR Pages/Head HR Base Dashboard/HeadHRBaseDashboard";
 import HRBaseDashboard from "./Pages/HR Pages/HR Base Dashboard/HRBaseDashboard";
 import CandidateBaseDashboard from "./Pages/Candidate Pages/Candidate Base Dashboard/CandidateBaseDashboard";
+import ActiveUsers from "./Pages/Admin Pages/Manager Users/Active Users/ActiveUsers";
+import BlockedUsers from "./Pages/Admin Pages/Manager Users/Blocked Users/BlockedUsers";
 
 const App = () => {
   return (
@@ -36,6 +38,8 @@ const App = () => {
         <Route path="/headHR-baseDashboard" element={<HeadHRBaseDashboard />} />
         <Route path="/HR-baseDashboard" element={<HRBaseDashboard />} />
         <Route path="/candidate-baseDashboard" element={<CandidateBaseDashboard />} />
+        <Route path="/admin-baseDashboard-manageUsers-activeUsers" element={<ActiveUsers />} />
+        <Route path="/admin-baseDashboard-manageUsers-blockedUsers" element={<BlockedUsers />} />
       </Routes>
     </BrowserRouter>
   );
