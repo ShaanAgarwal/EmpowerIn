@@ -5,6 +5,8 @@ const OtpRegistration = require('../Models/otpRegistrationSchema');
 const { sendEmailSingle } = require('../Utils/EmailSendingViaNodemailer/sendEmailSingle');
 const RegisterCandidateAPI = require('../Models/Audit Logs/Candidate Controller/registerCandidateAPI');
 const VerifyOTPRegistrationAPI = require("../Models/Audit Logs/Candidate Controller/verifyOTPRegistrationAPI");
+const PDFParser = require('pdf-parse');
+const axios = require('axios');
 
 const registerCandidate = async (req, res) => {
     try {
@@ -60,4 +62,35 @@ const verifyOtpRegistration = async (req, res) => {
     };
 };
 
-module.exports = { registerCandidate, verifyOtpRegistration };
+const uploadResumeProfile = async (req, res) => {
+    try {
+        const email = req.body.email;
+        const resume = req.file;
+        const dataBuffer = resume.buffer;
+        const data = await PDFParser(dataBuffer);
+        const djangoApiUrl = 'http://127.0.0.1:8000/api/resumeUpload/';
+        const djangoApiResponse = await axios.post(djangoApiUrl, {
+            parsedContent: data.text,
+        });
+        const resultArray = JSON.parse(djangoApiResponse.data.result);
+        const categories = resultArray.map(item => item.Category);
+        const userExist = await User.findOne({ email: email });
+        if (!userExist) {
+            return res.status(400).json({ message: "User with the given email does not exist.", success: false });
+        };
+        const candidateExist = await Candidate.findOne({ email: userExist._id });
+        if (!candidateExist) {
+            return res.status(400).json({ message: "Candidate with given email does not exist", success: false });
+        };
+        await Candidate.updateOne(
+            { email: userExist._id },
+            { $set: { categories: categories } }
+        );
+        return res.status(200).json({ message: "API executed successfully", success: true });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+module.exports = { registerCandidate, verifyOtpRegistration, uploadResumeProfile };
