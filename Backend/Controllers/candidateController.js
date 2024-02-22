@@ -5,6 +5,8 @@ const OtpRegistration = require('../Models/otpRegistrationSchema');
 const { sendEmailSingle } = require('../Utils/EmailSendingViaNodemailer/sendEmailSingle');
 const RegisterCandidateAPI = require('../Models/Audit Logs/Candidate Controller/registerCandidateAPI');
 const VerifyOTPRegistrationAPI = require("../Models/Audit Logs/Candidate Controller/verifyOTPRegistrationAPI");
+const PDFParser = require('pdf-parse');
+const axios = require('axios');
 
 const registerCandidate = async (req, res) => {
     try {
@@ -60,4 +62,21 @@ const verifyOtpRegistration = async (req, res) => {
     };
 };
 
-module.exports = { registerCandidate, verifyOtpRegistration };
+const uploadResumeProfile = async (req, res) => {
+    try {
+        const resume = req.file;
+        const dataBuffer = resume.buffer;
+        const data = await PDFParser(dataBuffer);
+        const djangoApiUrl = 'http://127.0.0.1:8000/api/resumeUpload/';
+        const djangoApiResponse = await axios.post(djangoApiUrl, {
+            parsedContent: data.text,
+        });
+        console.log('Django API Response:', djangoApiResponse.data);
+        return res.status(200).json({ message: "API executed successfully", success: true });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+module.exports = { registerCandidate, verifyOtpRegistration, uploadResumeProfile };
