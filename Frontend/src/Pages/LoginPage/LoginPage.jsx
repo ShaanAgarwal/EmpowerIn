@@ -32,6 +32,7 @@ const LoginPage = () => {
       );
       if (response.data.success === true) {
         localStorage.setItem("JWT_TOKEN", response.data.token);
+        localStorage.setItem("email", formData.email);
         const user = response.data.userExist.userType;
         if (user == 'Admin') {
           navigate('/admin-baseDashboard');

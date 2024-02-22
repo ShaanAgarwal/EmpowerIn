@@ -93,4 +93,24 @@ const uploadResumeProfile = async (req, res) => {
     };
 };
 
-module.exports = { registerCandidate, verifyOtpRegistration, uploadResumeProfile };
+const getCategories = async (req,res) => {
+    try {
+        const email = req.query.email;
+        console.log(email);
+        const userExist = await User.findOne({email: email});
+        if(!userExist) {
+            return res.status(404).json({message: "User with given email does not exist", success: false});
+        };
+        const candidateExist = await Candidate.findOne({email: userExist._id});
+        if(!candidateExist) {
+            return res.status(404).json({message: "Candidate with given email does not exist", success: false});
+        };
+        const categories = candidateExist.categories;
+        return res.status(200).json({message: "Fetching categories", success: true, categories});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message: "Internal Server Error", success: false});
+    }
+};
+
+module.exports = { registerCandidate, verifyOtpRegistration, uploadResumeProfile, getCategories };
