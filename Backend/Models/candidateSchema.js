@@ -16,6 +16,9 @@ const candidateSchema = new mongoose.Schema({
     aboutSection: {
         type: String,
     },
+    categories: [{
+        type: String,
+    }],
 }, { timestamps: true });
 
 const Candidate = mongoose.model('Candidate', candidateSchema);

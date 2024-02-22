@@ -64,6 +64,7 @@ const verifyOtpRegistration = async (req, res) => {
 
 const uploadResumeProfile = async (req, res) => {
     try {
+        const email = req.body.email;
         const resume = req.file;
         const dataBuffer = resume.buffer;
         const data = await PDFParser(dataBuffer);
@@ -71,7 +72,20 @@ const uploadResumeProfile = async (req, res) => {
         const djangoApiResponse = await axios.post(djangoApiUrl, {
             parsedContent: data.text,
         });
-        console.log('Django API Response:', djangoApiResponse.data);
+        const resultArray = JSON.parse(djangoApiResponse.data.result);
+        const categories = resultArray.map(item => item.Category);
+        const userExist = await User.findOne({ email: email });
+        if (!userExist) {
+            return res.status(400).json({ message: "User with the given email does not exist.", success: false });
+        };
+        const candidateExist = await Candidate.findOne({ email: userExist._id });
+        if (!candidateExist) {
+            return res.status(400).json({ message: "Candidate with given email does not exist", success: false });
+        };
+        await Candidate.updateOne(
+            { email: userExist._id },
+            { $set: { categories: categories } }
+        );
         return res.status(200).json({ message: "API executed successfully", success: true });
     } catch (error) {
         console.log(error);
