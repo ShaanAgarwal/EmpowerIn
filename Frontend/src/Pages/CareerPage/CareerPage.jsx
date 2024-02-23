@@ -3,31 +3,28 @@ import axios from 'axios';
 import "./CareerPage.css";
 import NavBar from '../../Components/NavBar/NavBar';
 import Footer from '../../Components/Footer/Footer';
-import jobPosts from './jobPosts';  // Update the path accordingly
+import jobPosts from './jobPosts';
 
 const CareerPage = () => {
   const [userCategories, setUserCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get email from local storage
     const email = localStorage.getItem('email');
-    console.log(email);
-
-    // Make API call only if email is present
     if (email) {
       fetchCategories(email);
     } else {
       setLoading(false);
+      setUserCategories(Object.keys(jobPosts)); // Assuming jobPosts is an object with category keys
     }
   }, []);
 
   const fetchCategories = async (email) => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/candidate/getCategories`, {
-        params: { email },  // Use params to send email
+        params: { email },
       });
-  
+
       setUserCategories(response.data.categories);
       setLoading(false);
     } catch (error) {
@@ -35,7 +32,7 @@ const CareerPage = () => {
       setLoading(false);
     }
   };
-  
+
 
   return (
     <>
@@ -46,7 +43,6 @@ const CareerPage = () => {
         ) : (
           userCategories.map(category => (
             <div key={category} className="job-category">
-              {/* <h2>{category}</h2> */}
               {jobPosts[category] && (
                 <div className="job-post">
                   <h3>{jobPosts[category].title}</h3>
