@@ -7,6 +7,7 @@ const contactUsRoutes = require("./Routes/contactUsRoutes");
 const candidateRoutes = require("./Routes/candidateRoutes");
 const forgotPasswordRoutes = require("./Routes/forgotPasswordRoutes");
 const adminRoutes = require("./Routes/adminRoutes");
+const auditLogRoutes = require("./Routes/auditLogRoutes");
 const { connectDatabase } = require("./Config/connectDatabase");
 const { sendEmailSingle } = require("./Utils/EmailSendingViaNodemailer/sendEmailSingle");
 
@@ -24,6 +25,7 @@ app.use("/api/contactUs", contactUsRoutes);
 app.use("/api/candidate", candidateRoutes);
 app.use("/api/forgotPassword", forgotPasswordRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/auditLogs", auditLogRoutes);
 
 app.get("/", (req, res) => {
   try {
