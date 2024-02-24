@@ -4,6 +4,8 @@ const ContactUsEmailAPI = require("../Models/Audit Logs/Contact Us Controller/co
 const RegisterEmailForgotPasswordAPI = require("../Models/Audit Logs/Forgot Password Controller/registerEmailForgotPasswordAPI");
 const VerifyOTPForgotPasswordAPI = require("../Models/Audit Logs/Forgot Password Controller/verifyOTPForgotPasswordAPI");
 const PasswordResetForgotPasswordAPI = require("../Models/Audit Logs/Forgot Password Controller/passwordResetForgotPasswordAPI");
+const UserRegisterAPI = require('../Models/Audit Logs/User Controller/userRegisterAPI');
+const UserLoginAPI = require('../Models/Audit Logs/User Controller/userLoginAPI');
 
 const getRegisterCandidateAPIAuditLogs = async (req, res) => {
     try {
@@ -45,24 +47,48 @@ const registerEmailForgotPasswordAPI = async (req, res) => {
     };
 };
 
-const verifyOTPForgotPasswordAPI = async (req,res) => {
+const verifyOTPForgotPasswordAPI = async (req, res) => {
     try {
         const verifyOTPForgotPasswordAPI = await VerifyOTPForgotPasswordAPI.find();
-        return res.status(200).json({message: verifyOTPForgotPasswordAPI, success: true});
+        return res.status(200).json({ message: verifyOTPForgotPasswordAPI, success: true });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({message: "Internal Server Error", success: false});
+        return res.status(500).json({ message: "Internal Server Error", success: false });
     };
 };
 
-const passwordResetForgotPasswordAPI = async (req,res) => {
+const passwordResetForgotPasswordAPI = async (req, res) => {
     try {
         const passwordResetForgotPasswordAPI = await PasswordResetForgotPasswordAPI.find();
-        return res.status(200).json({message: passwordResetForgotPasswordAPI, success: true});
+        return res.status(200).json({ message: passwordResetForgotPasswordAPI, success: true });
     } catch (error) {
         console.log(error);
-        return res.status(200).json({message: "Internal Server Error", success: false});
+        return res.status(200).json({ message: "Internal Server Error", success: false });
     };
 };
 
-module.exports = { getRegisterCandidateAPIAuditLogs, verifyOTPRegistrationAPI, contactUsEmailAPI, registerEmailForgotPasswordAPI, verifyOTPForgotPasswordAPI, passwordResetForgotPasswordAPI };
+const userRegisterAPI = async (req, res) => {
+    try {
+        const userRegisterAPI = await UserRegisterAPI.find();
+        return res.status(200).json({ message: userRegisterAPI, success: true });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+const userLoginAPI = async (req, res) => {
+    try {
+        const userLoginAPI = await UserLoginAPI.find();
+        return res.status(200).json({ message: userLoginAPI, success: true });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+module.exports = {
+    getRegisterCandidateAPIAuditLogs, verifyOTPRegistrationAPI, contactUsEmailAPI,
+    registerEmailForgotPasswordAPI, verifyOTPForgotPasswordAPI, passwordResetForgotPasswordAPI,
+    userRegisterAPI, userLoginAPI
+};
