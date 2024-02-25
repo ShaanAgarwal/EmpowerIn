@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 
+.navbar-component {
+  background-color: #e6e6fa;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .navbar-header {
   display: flex;
   background-color: #e6e6fa;
@@ -7,7 +20,9 @@
   padding: 1.8%;
   gap: 10%;
   align-items: center;
+  animation: slideIn 1s ease-out;
 }
+
 
 .navbar-header .navbar-company-logo {
   margin-left: 5%;
