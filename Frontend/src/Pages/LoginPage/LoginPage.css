@@ -85,7 +85,6 @@
     border-radius: 10px;
     padding-left: 20px;
     outline: none;
-    position: relative;
 }
 
 .login-page .login-component .inner-login-component .login-form .label-password .password-input::placeholder {
