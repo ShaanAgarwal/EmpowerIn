@@ -49,6 +49,13 @@ const LoginPage = () => {
     };
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent the default form submission behavior
+      handleSubmit(e);
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -80,6 +87,7 @@ const LoginPage = () => {
                   required
                   placeholder="Password"
                   className="password-input"
+                  onKeyDown={handleKeyDown}
                 />
               </label>
               <Link to='/forgotPassword-enterEmail' className="forgot-password">Forgot Password?</Link>
