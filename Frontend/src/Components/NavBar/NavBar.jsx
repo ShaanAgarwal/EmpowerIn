@@ -1,7 +1,7 @@
 import React from 'react';
 import "./NavBar.css";
 import { Link, useNavigate } from 'react-router-dom';
-import CompanyLogo from "../../assets/Images/CompanyLogo/Company-Logo.png"
+import CompanyLogo from "../../assets/Images/CompanyLogo/Company-Logo.png";
 
 const NavBar = () => {
 
@@ -11,14 +11,12 @@ const NavBar = () => {
     navigate('/login');
   };
 
-  const navigateHomePage = async () => {
-    navigate('/');
-  };
-
   return (
     <div className="navbar-header">
-      <div className="navbar-company-logo" onClick={navigateHomePage}>
-        <img src={CompanyLogo} alt="Company Logo" className='company-logo-picture'></img>
+      <div className="navbar-company-logo">
+        <Link to="/">
+          <img src={CompanyLogo} alt="Company Logo" className='company-logo-picture' />
+        </Link>
       </div>
       <div className="nav-content">
         <Link to="/aboutUs" className="nav-a">About</Link>

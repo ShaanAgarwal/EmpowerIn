@@ -11,7 +11,6 @@ const HomePage = () => {
       <HomePageTop />
       <HomePage2 />
       <Footer />
-      
     </>
   );
 };
