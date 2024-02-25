@@ -40,6 +40,7 @@
 .login-page .login-component .inner-login-component .login-form {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .login-page .login-component .inner-login-component .login-form .label-email {
@@ -47,6 +48,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .login-page .login-component .inner-login-component .login-form .label-email .email-input {
@@ -55,12 +57,17 @@
     height: 40px;
     border-radius: 10px;
     padding-left: 20px;
+    outline: none;
+    position: relative;
 }
 
 .login-page .login-component .inner-login-component .login-form .label-email .email-input::placeholder {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #BCBEC0;
-    position: relative;
-    font-family: 'Questrial', sans-serif;
+    transition: all 0.3s ease-in-out;
 }
 
 .login-page .login-component .inner-login-component .login-form .label-password {
@@ -68,6 +75,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .login-page .login-component .inner-login-component .login-form .label-password .password-input {
@@ -76,12 +84,26 @@
     height: 40px;
     border-radius: 10px;
     padding-left: 20px;
+    outline: none;
+    position: relative;
 }
 
 .login-page .login-component .inner-login-component .login-form .label-password .password-input::placeholder {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #BCBEC0;
-    position: relative;
-    font-family: 'Questrial', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-page .login-component .inner-login-component .login-form .label-email .email-input:focus::placeholder,
+.login-page .login-component .inner-login-component .login-form .label-password .password-input:focus::placeholder {
+    transform: translate(-5px, -22px);
+    font-size: 12px;
+    color: #BCBEC0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
 }
 
 .login-page .login-component .inner-login-component .login-form .forgot-password {
