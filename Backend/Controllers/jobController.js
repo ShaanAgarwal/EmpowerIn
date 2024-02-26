@@ -27,4 +27,14 @@ const createJob = async (req, res) => {
     };
 };
 
-module.exports = { createJob };
+const getAllJobs = async (req, res) => {
+    try {
+        const jobs = await Job.find();
+        return res.status(200).json({ message: "Getting All Jobs", jobs, success: true });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+module.exports = { createJob, getAllJobs };
