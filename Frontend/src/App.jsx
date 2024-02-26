@@ -17,6 +17,7 @@ import HRBaseDashboard from "./Pages/HR Pages/HR Base Dashboard/HRBaseDashboard"
 import CandidateBaseDashboard from "./Pages/Candidate Pages/Candidate Base Dashboard/CandidateBaseDashboard";
 import ActiveUsers from "./Pages/Admin Pages/Manager Users/Active Users/ActiveUsers";
 import BlockedUsers from "./Pages/Admin Pages/Manager Users/Blocked Users/BlockedUsers";
+import CreateJob from "./Pages/Admin Pages/Create Job Post/CreateJob";
 
 const App = () => {
   return (
@@ -26,20 +27,30 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/aboutUs" element={<AboutUsPage />} />
         <Route path="/services" element={<ServicesPage />} />
+
         <Route path="/career" element={<CareerPage />} />
+
         <Route path="/contactUs" element={<ContactUsPage />} />
         <Route path="/contactUsResponse" element={<ContactUsResponsePage />} />
+
         <Route path="/forgotPassword-enterEmail" element={<ForgotPasswordEnterEmailPage />} />
         <Route path="/forgotPassword-enterOTP" element={<ForgotPasswordEnterOTPPage />} />
         <Route path="/forgotPassword-resetPassword" element={<ForgotPasswordResetPasswordPage />} />
+
         <Route path="/registerCandidate-form" element={<RegisterCandidateForm />} />
         <Route path="/registerCandidate-OTPVerification" element={<RegisterCandidateOTPVerification />} />
+
         <Route path="/admin-baseDashboard" element={<AdminBaseDashboard />} />
-        <Route path="/headHR-baseDashboard" element={<HeadHRBaseDashboard />} />
-        <Route path="/HR-baseDashboard" element={<HRBaseDashboard />} />
-        <Route path="/candidate-baseDashboard" element={<CandidateBaseDashboard />} />
         <Route path="/admin-baseDashboard-manageUsers-activeUsers" element={<ActiveUsers />} />
         <Route path="/admin-baseDashboard-manageUsers-blockedUsers" element={<BlockedUsers />} />
+        <Route path="/admin-baseDashboard-create-job" element={<CreateJob />} />
+
+        <Route path="/headHR-baseDashboard" element={<HeadHRBaseDashboard />} />
+
+        <Route path="/HR-baseDashboard" element={<HRBaseDashboard />} />
+
+        <Route path="/candidate-baseDashboard" element={<CandidateBaseDashboard />} />
+
       </Routes>
     </BrowserRouter>
   );
