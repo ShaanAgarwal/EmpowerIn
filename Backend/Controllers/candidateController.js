@@ -66,6 +66,8 @@ const uploadResumeProfile = async (req, res) => {
     try {
         const email = req.body.email;
         const resume = req.file;
+        console.log(email);
+        console.log(resume);
         const dataBuffer = resume.buffer;
         const data = await PDFParser(dataBuffer);
         const djangoApiUrl = 'http://127.0.0.1:8000/api/resumeUpload/';
